@@ -2,7 +2,7 @@ package jd.piano.teclas;
 
 import java.awt.*;
 
-public abstract class Tecla {
+public abstract class Tecla implements Pulsable{
     protected Point posicion;
     private int nota;
     private boolean pulsada;
@@ -10,11 +10,14 @@ public abstract class Tecla {
     private Graphics graphics;
 
     Tecla(int n){
-        throw new UnsupportedOperationException("Sin programar");
+        this.posicion = null;
+        this.colorPulsada = null;
+        this.pulsada = false;
+        this.nota = n;
     }
 
     public int getNumeroNota(){
-        throw new UnsupportedOperationException("Sin programar");
+        return this.nota;
     }
 
     protected abstract int[] getVerticesX();
