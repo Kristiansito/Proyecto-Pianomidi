@@ -34,11 +34,6 @@ public class TeclaBlanca1 extends TeclaBlanca{
     }
 
     @Override
-    public void setColorPulsado() {
-
-    }
-
-    @Override
     public Color getColorPulsado() {
         return null;
     }
