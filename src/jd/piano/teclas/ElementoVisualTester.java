@@ -1,5 +1,8 @@
 package jd.piano.teclas;
 
+import bpc.daw.consola.Consola;
+import bpc.daw.consola.FondoColorSolido;
+
 import java.awt.*;
 
 public class ElementoVisualTester {
@@ -7,15 +10,19 @@ public class ElementoVisualTester {
     private ElementoVisual elemento;
 
     public ElementoVisualTester(Graphics g){
-        throw new UnsupportedOperationException("No programado");
+        this.graphics = g;
+        this.elemento = null;
     }
 
     public ElementoVisualTester(){
-        throw new UnsupportedOperationException("No programado");
+        Consola c = new Consola();
+        c.getCapaFondo().setFondo(new FondoColorSolido(Color.GRAY));
+        this.graphics = c.getCapaCanvas().getGraphics();
+        this.elemento = null;
     }
 
     public void setElementoVisual(ElementoVisual e){
-        throw new UnsupportedOperationException("No programado");
+        this.elemento = e;
     }
 
     public boolean hacerPrueba(){
