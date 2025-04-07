@@ -19,36 +19,6 @@ public class TeclaBlanca3 extends TeclaBlanca{
     }
 
     @Override
-    public void pulsar() {
-
-    }
-
-    @Override
-    public void soltar() {
-
-    }
-
-    @Override
-    public boolean estaPulsado() {
-        return false;
-    }
-
-    @Override
-    public void setColorPulsado() {
-
-    }
-
-    @Override
-    public Color getColorPulsado() {
-        return null;
-    }
-
-    @Override
-    public Color getColorNoPulsado() {
-        return null;
-    }
-
-    @Override
     public void setPosicion(int x, int y) {
 
     }
@@ -56,20 +26,5 @@ public class TeclaBlanca3 extends TeclaBlanca{
     @Override
     public void setGraphics(Graphics g) {
 
-    }
-
-    @Override
-    public void dibujar() {
-
-    }
-
-    @Override
-    public int getAnchura() {
-        return 0;
-    }
-
-    @Override
-    public int getAltura() {
-        return 0;
     }
 }
