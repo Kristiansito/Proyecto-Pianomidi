@@ -17,9 +17,4 @@ public class TeclaBlanca1 extends TeclaBlanca{
     protected int[] getVerticesY() {
         return new int[0];
     }
-
-    @Override
-    public void setGraphics(Graphics g) {
-
-    }
 }

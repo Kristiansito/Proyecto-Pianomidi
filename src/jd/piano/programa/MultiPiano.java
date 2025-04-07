@@ -19,17 +19,17 @@ public class MultiPiano extends Piano {
     }
 
     @Override
+    public void dibujar() {
+        throw new UnsupportedOperationException("No programado");
+    }
+
+    @Override
     public void setPosicion(int x, int y) {
         throw new UnsupportedOperationException("No programado");
     }
 
     @Override
     public void setGraphics(Graphics g) {
-        throw new UnsupportedOperationException("No programado");
-    }
-
-    @Override
-    public void dibujar() {
         throw new UnsupportedOperationException("No programado");
     }
 

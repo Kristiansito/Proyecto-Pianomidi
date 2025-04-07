@@ -12,23 +12,8 @@ public class TeclaNegra extends Tecla{
     }
 
     @Override
-    protected int[] getVerticesX() {
-        return new int[0];
-    }
-
-    @Override
-    protected int[] getVerticesY() {
-        return new int[0];
-    }
-
-    @Override
     public Color getColorNoPulsado() {
         return null;
-    }
-
-    @Override
-    public void setGraphics(Graphics g) {
-
     }
 
     @Override
@@ -39,5 +24,15 @@ public class TeclaNegra extends Tecla{
     @Override
     public int getAltura() {
         return 0;
+    }
+
+    @Override
+    protected int[] getVerticesX() {
+        return new int[0];
+    }
+
+    @Override
+    protected int[] getVerticesY() {
+        return new int[0];
     }
 }

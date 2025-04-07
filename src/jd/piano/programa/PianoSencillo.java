@@ -14,7 +14,12 @@ public class PianoSencillo extends Piano {
     }
 
     @Override
-    public Tecla getTecla(int canal, int nota) {
+    public void setGraphics(Graphics g) {
+        throw new UnsupportedOperationException("No programado");
+    }
+
+    @Override
+    public void dibujar() {
         throw new UnsupportedOperationException("No programado");
     }
 
@@ -24,12 +29,7 @@ public class PianoSencillo extends Piano {
     }
 
     @Override
-    public void setGraphics(Graphics g) {
-        throw new UnsupportedOperationException("No programado");
-    }
-
-    @Override
-    public void dibujar() {
+    public Tecla getTecla(int canal, int nota) {
         throw new UnsupportedOperationException("No programado");
     }
 

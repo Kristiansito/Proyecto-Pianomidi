@@ -13,10 +13,10 @@ public class ReprodcutorMidi implements Receiver {
     public ReprodcutorMidi(){
         throw new UnsupportedOperationException("No programado");
     }
-    public void reproducir(String ruta){
+    public void conectar(Piano p){
         throw new UnsupportedOperationException("No programado");
     }
-    public void conectar(Piano p){
+    public void reproducir(String ruta){
         throw new UnsupportedOperationException("No programado");
     }
 
