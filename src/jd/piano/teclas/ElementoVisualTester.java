@@ -26,6 +26,30 @@ public class ElementoVisualTester {
     }
 
     public boolean hacerPrueba(){
-        throw new UnsupportedOperationException("No programado");
+        this.elemento.setPosicion(120, 90);
+        this.elemento.setGraphics(this.graphics);
+
+        this.elemento.dibujar();
+
+        if (this.elemento instanceof Pulsable){
+            try{
+                ((Pulsable) this.elemento).setColorPulsado(Color.BLUE);
+                Thread.sleep(2000);
+                ((Pulsable) this.elemento).pulsar();
+                Thread.sleep(2000);
+                ((Pulsable) this.elemento).soltar();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        Consola c = new Consola();
+        c.getCapaTexto().println("¿Ha salido el test bien?");
+        char letra = c.getTeclado().leerCaracter();
+        boolean b = true;
+        if (letra !='s' && letra != 'S'){
+            b = false;
+        }
+        return b;
     }
 }

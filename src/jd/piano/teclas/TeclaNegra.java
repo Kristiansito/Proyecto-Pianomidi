@@ -8,31 +8,34 @@ public class TeclaNegra extends Tecla{
 
     TeclaNegra(int n){
         super(n);
-        throw new UnsupportedOperationException("No programado");
     }
 
     @Override
     public Color getColorNoPulsado() {
-        return null;
+        return Color.BLACK;
     }
 
     @Override
     public int getAnchura() {
-        return 0;
+        return TeclaNegra.ANCHURA;
     }
 
     @Override
     public int getAltura() {
-        return 0;
+        return TeclaNegra.ALTURA;
     }
 
     @Override
     protected int[] getVerticesX() {
-        return new int[0];
+        int x = super.posicion.x;
+        int[] verticesX = {x, x, x+TeclaNegra.ANCHURA, x+TeclaNegra.ANCHURA};
+        return verticesX;
     }
 
     @Override
     protected int[] getVerticesY() {
-        return new int[0];
+        int y = super.posicion.y;
+        int[] verticesY = {y, y+TeclaNegra.ALTURA, y+TeclaNegra.ALTURA, y};
+        return verticesY;
     }
 }
