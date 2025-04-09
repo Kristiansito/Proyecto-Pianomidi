@@ -9,30 +9,36 @@ public class TeclaBlanca1 extends TeclaBlanca{
 
     @Override
     protected int[] getVerticesX() {
-        int x = posicion.x;
+        int x = (int) posicion.getX();
         int B = TeclaBlanca.ANCHURA;
         int N = TeclaNegra.ANCHURA;
 
+        // Se define el array de X, incluyendo la muesca para la tecla negra
         return new int[]{
                 x,
-                x + B - N / 2,
+                x,
+                x+B-N/2,
+                x+B-N/2,
                 x + B,
-                x + B,
-                x
+                x + B
+
         };
     }
 
     @Override
     protected int[] getVerticesY() {
-        int y = posicion.y;
-        int A = TeclaBlanca.ALTURA;
+        int y = (int) posicion.getY();
+        int N = TeclaNegra.ALTURA;
+        int B = TeclaBlanca.ALTURA;
 
+        // Se define el array de Y para el polígono
         return new int[]{
                 y,
                 y,
-                y,
-                y +  A,
-                y + A
+                y + N,
+                y + N,
+                y + B,
+                y + B
         };
     }
 }
