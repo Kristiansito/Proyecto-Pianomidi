@@ -6,11 +6,11 @@ import javax.sound.midi.MidiMessage;
 import javax.sound.midi.Receiver;
 import java.awt.*;
 
-public class ReprodcutorMidi implements Receiver {
+public class ReproductorMidi implements Receiver {
     private static final Color[] COLORES;
     private PianoMidi piano;
 
-    public ReprodcutorMidi(){
+    public ReproductorMidi(){
         throw new UnsupportedOperationException("No programado");
     }
     public void conectar(Piano p){
