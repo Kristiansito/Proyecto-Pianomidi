@@ -1,45 +1,84 @@
 package jd.piano.programa;
 
-import jd.piano.teclas.Piano;
-import jd.piano.teclas.Tecla;
+import jd.piano.teclas.*;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public class PianoSencillo extends Piano {
     private Map<Integer, Tecla> teclas;
 
     public PianoSencillo(int teclaInicial, int teclaFinal) {
-        throw new UnsupportedOperationException("No programado");
+        super();
+        this.teclas = new HashMap<>();
+        // He tenido que poner protected en la clase padre
+        this.teclaFinal = teclaFinal;
+        this.teclaInicial = teclaInicial;
+
+        for (int nota = teclaInicial; nota <= teclaFinal; nota++) {
+            Tecla tecla = TeclaFactory.crearTecla(nota);
+            this.teclas.put(nota, tecla);
+        }
     }
 
     @Override
     public void setGraphics(Graphics g) {
-        throw new UnsupportedOperationException("No programado");
+        for (Tecla tecla : this.teclas.values()) {
+            tecla.setGraphics(g);
+        }
     }
 
     @Override
     public void dibujar() {
-        throw new UnsupportedOperationException("No programado");
+        for (Tecla tecla : this.teclas.values()) {
+            tecla.dibujar();
+        }
     }
 
     @Override
     public void setPosicion(int x, int y) {
-        throw new UnsupportedOperationException("No programado");
+        int x1 = x;
+        int y1 = y;
+
+        for (Tecla tecla : this.teclas.values()) {
+            if (tecla instanceof TeclaBlanca) {
+                tecla.setPosicion(x1, y1);
+                x1 += tecla.getAnchura();
+            }
+            else if (tecla instanceof TeclaNegra) {
+                tecla.setPosicion(x1 - TeclaNegra.ANCHURA / 2, y1);
+            }
+        }
+        dibujar();
     }
 
     @Override
     public Tecla getTecla(int canal, int nota) {
-        throw new UnsupportedOperationException("No programado");
+        return this.teclas.get(nota);
     }
 
     @Override
     public int getAnchura() {
-        throw new UnsupportedOperationException("No programado");
+        int anchura = 0;
+        for (Tecla tecla : teclas.values()) {
+            if (tecla instanceof TeclaBlanca) {
+                anchura += tecla.getAnchura();
+            }
+        }
+        return anchura;
     }
 
     @Override
     public int getAltura() {
-        throw new UnsupportedOperationException("No programado");
+        int altura = 0;
+        for (Tecla t : teclas.values()) {
+            if (t.getAltura() > altura) {
+                altura = t.getAltura();
+            }
+        }
+        return altura;
     }
 }

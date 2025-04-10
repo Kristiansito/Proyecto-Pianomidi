@@ -5,18 +5,19 @@ import org.junit.Test;
 import java.awt.*;
 
 import static org.junit.Assert.*;
-public class TeclaBlanca1Test {
+
+public class TeclaBlanca2Test {
     @Test
     public void test1(){
-        TeclaBlanca1 teclaBlanca1 = new TeclaBlanca1(60);
-        teclaBlanca1.setColorPulsado(Color.BLUE);
+        TeclaBlanca2 teclaBlanca2 = new TeclaBlanca2(62);
+        teclaBlanca2.setColorPulsado(Color.BLUE);
 
         ElementoVisualTester e1 = new ElementoVisualTester();
-        e1.setElementoVisual(teclaBlanca1);
+        e1.setElementoVisual(teclaBlanca2);
 
         boolean resultado = e1.hacerPrueba();
 
         assertTrue(resultado);
     }
-  
+
 }
