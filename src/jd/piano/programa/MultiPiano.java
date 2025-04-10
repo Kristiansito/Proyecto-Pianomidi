@@ -10,12 +10,15 @@ public class MultiPiano extends Piano {
     private List<PianoSencillo> pianos;
 
     public MultiPiano(int ti, int tf){
-        throw new UnsupportedOperationException("No programado");
+        super();
+        for (int i = 0; i<16; i++){
+            this.pianos.add(new PianoSencillo(ti, tf));
+        }
     }
 
     @Override
     public Tecla getTecla(int canal, int nota) {
-        throw new UnsupportedOperationException("No programado");
+        return this.pianos.get(canal).getTecla(canal, nota);
     }
 
     @Override
