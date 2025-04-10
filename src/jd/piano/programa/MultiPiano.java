@@ -23,26 +23,43 @@ public class MultiPiano extends Piano {
 
     @Override
     public void dibujar() {
-        throw new UnsupportedOperationException("No programado");
+        for (PianoSencillo p : this.pianos){
+            p.dibujar();
+        }
     }
 
     @Override
     public void setPosicion(int x, int y) {
-        throw new UnsupportedOperationException("No programado");
+        final int filas = 8;
+        final int columnas = 2;
+
+        int nPiano = 0;
+
+        for (int i = 0; i < filas; i++){
+            for (int j = 0; j < columnas; j++){
+                int coordX = x + j * this.pianos.get(nPiano).getAnchura();
+                int coordY = y + i * this.pianos.get(nPiano).getAltura();
+
+                this.pianos.get(nPiano).setPosicion(coordX, coordY);
+                nPiano++;
+            }
+        }
     }
 
     @Override
     public void setGraphics(Graphics g) {
-        throw new UnsupportedOperationException("No programado");
+        for (PianoSencillo p : this.pianos){
+            p.setGraphics(g);
+        }
     }
 
     @Override
     public int getAnchura() {
-        throw new UnsupportedOperationException("No programado");
+        return this.pianos.get(0).getAnchura();
     }
 
     @Override
     public int getAltura() {
-        throw new UnsupportedOperationException("No programado");
+        return this.pianos.get(0).getAltura();
     }
 }
