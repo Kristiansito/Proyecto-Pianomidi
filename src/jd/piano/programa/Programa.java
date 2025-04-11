@@ -41,7 +41,7 @@ public class Programa {
                 }
             }
             p.setGraphics(c.getCapaCanvas().getGraphics());
-            p.setPosicion(0,0);
+            p.setPosicion(50,50);
             ReproductorMidi r = new ReproductorMidi();
             r.conectar(p);
             r.reproducir(ruta);
