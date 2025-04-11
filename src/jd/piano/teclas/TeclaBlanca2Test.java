@@ -17,7 +17,9 @@ public class TeclaBlanca2Test {
 
         boolean resultado = e1.hacerPrueba();
 
-        assertTrue(resultado);
+        if (!resultado) {
+            fail("La prueba falló: ElementoVisualTester.hacerPrueba() devolvió false.");
+        }
     }
 
 }
