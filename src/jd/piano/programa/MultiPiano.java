@@ -42,7 +42,7 @@ public class MultiPiano extends Piano {
                 int coordX = x + j * this.pianos.get(nPiano).getAnchura();
                 int coordY = y + i * this.pianos.get(nPiano).getAltura();
 
-                this.pianos.get(nPiano).setPosicion(coordX, coordY);
+                this.pianos.get(nPiano).setPosicion(coordX + coordX/50, coordY + coordY/10);
                 nPiano++;
             }
         }
