@@ -16,8 +16,8 @@ public class TeclaBlanca3 extends TeclaBlanca{
         return new int[]{
                 x,
                 x,
-                x+B-N/2,
-                x+B-N/2,
+                x+B-N,
+                x+B-N,
                 x + B,
                 x + B
         };

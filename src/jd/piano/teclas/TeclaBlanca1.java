@@ -21,7 +21,6 @@ public class TeclaBlanca1 extends TeclaBlanca{
                 x+B-N/2,
                 x + B,
                 x + B
-
         };
     }
 
