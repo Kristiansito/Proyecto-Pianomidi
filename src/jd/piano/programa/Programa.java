@@ -1,52 +1,86 @@
 package jd.piano.programa;
 
+import bpc.daw.consola.CapaTexto;
 import bpc.daw.consola.Consola;
 import bpc.daw.consola.FondoColorSolido;
 import jd.piano.teclas.Piano;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Toolkit;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Programa {
     public static void main(String[] args) {
         Consola c = new Consola();
-        c.getCapaFondo().setFondo(
-                new FondoColorSolido(
-                        new Color(0,0,70)
-                )
-        );
+        CapaTexto ct = c.getCapaTexto();
+        c.getCapaFondo().setFondo(new FondoColorSolido(new Color(0, 0, 70)));
 
-        c.getCapaTexto().println("Escribe la ruta de un archivo: ");
-        String ruta = c.getTeclado().leerCadenaCaracteres();
-        if (!new File(ruta).exists()){
-            c.getCapaTexto().println("El archivo no existe.");
-        }else {
-            c.getCapaTexto().println("""
+        String ruta = "";
+        File carpetaCanciones = new File("./songs");
+        List<File> listaCanciones = new ArrayList<>();
+
+        if (carpetaCanciones.exists() && carpetaCanciones.isDirectory()) {
+            File[] archivos = carpetaCanciones.listFiles();
+            if (archivos != null) {
+                for (File f : archivos) {
+                    if (f.isFile()) {
+                        listaCanciones.add(f);
+                    }
+                }
+            }
+        }
+
+        if (!listaCanciones.isEmpty()) {
+            int nMaximo = listaCanciones.size();
+            ct.println("Seleccione una opción (0-" + nMaximo + "):");
+            ct.println("0. Ruta personalizada");
+            for (int i = 0; i < nMaximo; i++) {
+                ct.println((i + 1) + ". " + listaCanciones.get(i).getName());
+            }
+            int opcion = c.getTeclado().leerNumeroEntero();
+            ct.cls();
+
+            if (opcion == 0) {
+                ct.println("Escribe la ruta de un archivo:");
+                ruta = c.getTeclado().leerCadenaCaracteres();
+            } else if (opcion >= 1 && opcion <= nMaximo) {
+                ruta = listaCanciones.get(opcion - 1).getPath();
+            } else {
+                ct.println("Opción no válida.");
+            }
+        } else {
+            ct.println("El directorio './songs' no existe o no contiene canciones.");
+            ct.println("Escribe la ruta de un archivo:");
+            ruta = c.getTeclado().leerCadenaCaracteres();
+        }
+
+        if (!new File(ruta).exists()) {
+            ct.println("El archivo no existe.");
+        } else {
+            ct.println("""
                     ¿Dónde desea reproducir la canción?
                     1. Piano Sencillo
                     2. Multi Piano
                     """);
-            int opcion = c.getTeclado().leerNumeroEntero();
-
+            int opcionPiano = c.getTeclado().leerNumeroEntero();
             Piano p = null;
-            switch (opcion){
-                case 1 -> {
-                    p = new PianoSencillo(24, 108);
-                }
-                case 2 -> {
-                    p = new MultiPiano(24, 108);
-                }
+            switch (opcionPiano) {
+                case 1 -> p = new PianoSencillo(24, 108);
+                case 2 -> p = new MultiPiano(24, 108);
                 default -> {
-                    c.getCapaTexto().println("Opción inválida");
+                    ct.println("Opción inválida");
                 }
             }
-            c.getCapaTexto().cls();
+            ct.cls();
             p.setGraphics(c.getCapaCanvas().getGraphics());
-            if (p instanceof PianoSencillo){
-                p.setPosicion(Toolkit.getDefaultToolkit().getScreenSize().width/2-p.getAnchura()/2,
-                        Toolkit.getDefaultToolkit().getScreenSize().height/2-p.getAltura()/2);
-            } else{
-                p.setPosicion(0,0);
+            if (p instanceof PianoSencillo) {
+                p.setPosicion(
+                        Toolkit.getDefaultToolkit().getScreenSize().width / 2 - p.getAnchura() / 2,
+                        Toolkit.getDefaultToolkit().getScreenSize().height / 2 - p.getAltura() / 2
+                );
+            } else {
+                p.setPosicion(0, 0);
             }
             ReproductorMidi r = new ReproductorMidi();
             r.conectar(p);
