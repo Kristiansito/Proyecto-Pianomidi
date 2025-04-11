@@ -42,7 +42,12 @@ public class Programa {
             }
             c.getCapaTexto().cls();
             p.setGraphics(c.getCapaCanvas().getGraphics());
-            p.setPosicion(0,0);
+            if (p instanceof PianoSencillo){
+                p.setPosicion(Toolkit.getDefaultToolkit().getScreenSize().width/2-p.getAnchura()/2,
+                        Toolkit.getDefaultToolkit().getScreenSize().height/2-p.getAltura()/2);
+            } else{
+                p.setPosicion(0,0);
+            }
             ReproductorMidi r = new ReproductorMidi();
             r.conectar(p);
             r.reproducir(ruta);
