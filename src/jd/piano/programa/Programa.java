@@ -3,10 +3,15 @@ package jd.piano.programa;
 import bpc.daw.consola.CapaTexto;
 import bpc.daw.consola.Consola;
 import bpc.daw.consola.FondoColorSolido;
+import bpc.daw.consola.FondoImagen;
 import jd.piano.teclas.Piano;
+
+import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +19,14 @@ public class Programa {
     public static void main(String[] args) {
         Consola c = new Consola();
         CapaTexto ct = c.getCapaTexto();
-        c.getCapaFondo().setFondo(new FondoColorSolido(new Color(0, 0, 70)));
+        try{
+            BufferedImage cargarImagen = ImageIO.read(new File("fondo.jpg"));
+            FondoImagen imagenFondo = new FondoImagen(cargarImagen);
+            c.getCapaFondo().setFondo(imagenFondo);
+            imagenFondo.setEscalado(true);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
         String ruta = "";
         File carpetaCanciones = new File("./songs");
