@@ -40,8 +40,8 @@ public class Programa {
                     c.getCapaTexto().println("Opción inválida");
                 }
             }
-            p.setPosicion(0,0);
             p.setGraphics(c.getCapaCanvas().getGraphics());
+            p.setPosicion(0,0);
             ReproductorMidi r = new ReproductorMidi();
             r.conectar(p);
             r.reproducir(ruta);
