@@ -4,6 +4,7 @@ import jd.piano.teclas.Piano;
 import jd.piano.teclas.Tecla;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultiPiano extends Piano {
@@ -11,6 +12,7 @@ public class MultiPiano extends Piano {
 
     public MultiPiano(int ti, int tf){
         super();
+        this.pianos = new ArrayList<>();
         for (int i = 0; i<16; i++){
             this.pianos.add(new PianoSencillo(ti, tf));
         }
