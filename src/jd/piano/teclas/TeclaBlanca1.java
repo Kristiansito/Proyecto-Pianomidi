@@ -16,11 +16,12 @@ public class TeclaBlanca1 extends TeclaBlanca{
         // Se define el array de X, incluyendo la muesca para la tecla negra
         return new int[]{
                 x,
-                x,
                 x+B-N/2,
                 x+B-N/2,
+                x+B,
                 x + B,
-                x + B
+                x
+
         };
     }
 

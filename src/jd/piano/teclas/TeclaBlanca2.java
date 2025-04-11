@@ -15,13 +15,13 @@ public class TeclaBlanca2 extends TeclaBlanca{
 
         return new int[]{
                 x,
-                x,
                 x+N/2,
                 x+N/2,
                 x+B-N/2,
                 x+B-N/2,
+                x+B,
                 x + B,
-                x + B
+                x
         };
     }
 
@@ -32,10 +32,10 @@ public class TeclaBlanca2 extends TeclaBlanca{
         int B = TeclaBlanca.ALTURA;
 
         return new int[]{
+                y+N,
+                y+N,
                 y,
                 y,
-                y + N,
-                y + N,
                 y + N,
                 y + N,
                 y + B,
