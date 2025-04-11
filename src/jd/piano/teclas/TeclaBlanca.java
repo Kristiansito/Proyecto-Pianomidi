@@ -17,11 +17,11 @@ public abstract class TeclaBlanca extends Tecla{
 
     @Override
     public int getAltura(){
-        return ANCHURA;
+        return this.ALTURA;
     }
 
     @Override
     public int getAnchura(){
-        return ALTURA;
+        return this.ANCHURA;
     }
 }
