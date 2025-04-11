@@ -40,6 +40,7 @@ public class Programa {
                     c.getCapaTexto().println("Opción inválida");
                 }
             }
+            c.getCapaTexto().cls();
             p.setGraphics(c.getCapaCanvas().getGraphics());
             p.setPosicion(50,50);
             ReproductorMidi r = new ReproductorMidi();
