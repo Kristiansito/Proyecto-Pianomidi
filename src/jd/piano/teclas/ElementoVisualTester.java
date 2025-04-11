@@ -26,8 +26,8 @@ public class ElementoVisualTester {
     }
 
     public boolean hacerPrueba(){
-        this.elemento.setPosicion(120, 90);
         this.elemento.setGraphics(this.graphics);
+        this.elemento.setPosicion(120, 90);
 
         this.elemento.dibujar();
 
